@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#df3222</color>
+    <color name="colorPrimaryDark">#ab291d</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="ganesh">#19df2522</color>
+    <color name="textcolor">#362929</color>
+    <color name="cardbackgroud">#fff4f4</color>
+</resources>
