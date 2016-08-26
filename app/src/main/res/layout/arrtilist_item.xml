@@ -13,7 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            android:background="@android:color/black"
             android:id="@+id/img"
+            android:transitionName="logo"
             android:src="@drawable/g1"
             android:scaleType="centerCrop"
             android:layout_alignParentLeft="true"

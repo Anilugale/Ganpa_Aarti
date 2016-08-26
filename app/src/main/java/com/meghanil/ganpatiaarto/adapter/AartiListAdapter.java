@@ -2,8 +2,9 @@ package com.meghanil.ganpatiaarto.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.content.ContextCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,21 +20,23 @@ import com.meghanil.ganpatiaarto.AartiList;
 import com.meghanil.ganpatiaarto.MainActivity;
 import com.meghanil.ganpatiaarto.R;
 import com.meghanil.ganpatiaarto.Util;
+import com.squareup.picasso.Picasso;
 
 /**
-   Created by anil on 25/8/16.
+ Created by anil on 25/8/16.
  */
 public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Context context;
     String[] titileData,descriptionData;
+    TypedArray imageID;
     static int main =1,ad=2;
 
     public AartiListAdapter(Context context) {
         this.context = context;
         titileData = context.getResources().getStringArray(R.array.tittle);
         descriptionData = context.getResources().getStringArray(R.array.description);
-
+        imageID = context.getResources().obtainTypedArray(R.array.imageArray);
     }
 
     @Override
@@ -49,20 +52,24 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(RecyclerView.ViewHolder holder1, int position) {
         if(holder1.getItemViewType() == main) {
             final ViewHolder holder=(ViewHolder) holder1;
-            holder.img.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.g1));
 
             final int newposition = getPosition(position);
             Log.d("postion", "onBindViewHolder: "+newposition+ " "+position );
             holder.tittle.setText(titileData[newposition]);
-
+            Picasso.with(context).load(imageID.getResourceId(newposition, -1)).into(holder.img);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent main = new Intent(context, MainActivity.class);
+
+                    Pair<View, String> pair1 = Pair.create( holder.itemView.findViewById(R.id.card), "card");
+                    Pair<View, String> pair2 = Pair.create(holder.itemView.findViewById(R.id.img),"logo");
                     ActivityOptionsCompat options = ActivityOptionsCompat.
-                            makeSceneTransitionAnimation((AartiList) context, holder.itemView.findViewById(R.id.card), "card");
+                            makeSceneTransitionAnimation((AartiList) context,pair1,pair2);
+
                     main.putExtra(MainActivity.TTITTL, titileData[newposition]);
                     main.putExtra(MainActivity.DESCRIPTION, descriptionData[newposition]);
+                    main.putExtra(MainActivity.IMAGE, imageID.getResourceId(newposition, -1));
                     context.startActivity(main, options.toBundle());
                 }
             });
@@ -104,7 +111,7 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         AdView mAdView;
         public AdViewHolder(View itemView) {
             super(itemView);
-             mAdView = (AdView) itemView.findViewById(R.id.adView);
+            mAdView = (AdView) itemView.findViewById(R.id.adView);
         }
     }
 

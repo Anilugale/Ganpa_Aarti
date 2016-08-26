@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="imageArray">
+        <item>@drawable/g1</item>
+        <item>@drawable/durga</item>
+        <item>@drawable/shankar</item>
+        <item>@drawable/g1</item>
+        <item>@drawable/vittal</item>
+        <item>@drawable/mahalaximi</item>
+        <item>@drawable/datta</item>
+        <item>@drawable/krishana</item>
+        <item>@drawable/satyanarayan</item>
+        <item>@drawable/g1</item>
+        <item>@drawable/g1</item>
+        <item>@drawable/g1</item>
+    </string-array>
+</resources>
