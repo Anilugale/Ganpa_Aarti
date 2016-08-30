@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,8 +55,8 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             final ViewHolder holder=(ViewHolder) holder1;
 
             final int newposition = getPosition(position);
-            Log.d("postion", "onBindViewHolder: "+newposition+ " "+position );
-            holder.tittle.setText(titileData[newposition]);
+            //Util.setTypeFace(holder.tittle,context);
+            holder.tittle.setText(Html.fromHtml(titileData[newposition]));
             Picasso.with(context).load(imageID.getResourceId(newposition, -1)).into(holder.img);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

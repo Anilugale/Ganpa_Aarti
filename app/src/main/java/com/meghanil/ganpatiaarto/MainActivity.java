@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-
         init();
 
     }
@@ -40,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         String tittle = data.getString(TTITTL,null);
         if(tittle!=null) {
             getSupportActionBar().setTitle(tittle);
+
         }
         String description = data.getString(DESCRIPTION,null);
         if(description!=null){
