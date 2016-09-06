@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
         String tittle = data.getString(TTITTL,null);
         if(tittle!=null) {
             getSupportActionBar().setTitle(tittle);
-
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         String description = data.getString(DESCRIPTION,null);
         if(description!=null){
@@ -52,17 +54,16 @@ public class MainActivity extends AppCompatActivity {
         }
         nested = (NestedScrollView) findViewById(R.id.nested);
 
-
-
-        MobileAds.initialize(getApplicationContext(), Util.APP_ID);
-
         AdView mAdView = (AdView) findViewById(R.id.adView);
+        if(Util.isNetworkAvailable(this)) {
+            MobileAds.initialize(getApplicationContext(), Util.APP_ID);
+            AdRequest adRequest = new AdRequest.Builder()
+                    .build();
+            mAdView.loadAd(adRequest);
+        }else{
+            mAdView.setVisibility(View.GONE);
+        }
 
-
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
-
-        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -76,11 +76,17 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             });
         }else{
             AdViewHolder adViewHolder=(AdViewHolder) holder1;
-            MobileAds.initialize(context.getApplicationContext(), Util.APP_ID);
 
-            AdRequest adRequest = new AdRequest.Builder()
-                    .build();
-            adViewHolder.mAdView.loadAd(adRequest);
+            if(Util.isNetworkAvailable(context)) {
+                MobileAds.initialize(context.getApplicationContext(), Util.APP_ID);
+
+                AdRequest adRequest = new AdRequest.Builder()
+                        .build();
+                adViewHolder.mAdView.loadAd(adRequest);
+                adViewHolder.mAdView.setVisibility(View.VISIBLE);
+            }else{
+                adViewHolder.mAdView.setVisibility(View.GONE);
+            }
         }
 
     }
@@ -95,7 +101,7 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemCount() {
-        return descriptionData.length+(descriptionData.length/4);
+                return descriptionData.length+(descriptionData.length/4)+1;
     }
 
     class  ViewHolder extends RecyclerView.ViewHolder{

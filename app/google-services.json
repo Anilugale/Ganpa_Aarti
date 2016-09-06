@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "533935873085",
-    "firebase_url": "https://ganpati-aarti.firebaseio.com",
-    "project_id": "ganpati-aarti",
-    "storage_bucket": "ganpati-aarti.appspot.com"
+    "project_number": "676885738186",
+    "firebase_url": "https://admob-app-id-2517610118.firebaseio.com",
+    "project_id": "admob-app-id-2517610118",
+    "storage_bucket": "admob-app-id-2517610118.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:533935873085:android:a4313d30077509cf",
+        "mobilesdk_app_id": "1:676885738186:android:a4313d30077509cf",
         "android_client_info": {
           "package_name": "com.meghanil.ganpatiaarto"
         }
       },
       "oauth_client": [
         {
-          "client_id": "533935873085-hfqv4r2scooumn5t9dce4npb8ufaq89r.apps.googleusercontent.com",
+          "client_id": "676885738186-r2iflloqotn24tjnobouij7oati0jsc8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDzKh8SjxSsICGr6J88yEutSp37VqBw0RU"
+          "current_key": "AIzaSyCI6q4HTG24rd-KeZjpPtmq4-hLAWi2iPA"
         }
       ],
       "services": {
