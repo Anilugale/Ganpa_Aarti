@@ -1,23 +1,20 @@
 package com.meghanil.ganpatiaarto;
 
-import android.*;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import com.appbrain.AdId;
+import com.appbrain.AppBrain;
+import com.appbrain.InterstitialBuilder;
 import com.meghanil.ganpatiaarto.adapter.AartiListAdapter;
 
 public class AartiList extends AppCompatActivity {
@@ -27,10 +24,11 @@ public class AartiList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppBrain.init(this);
         setContentView(R.layout.aarti_list);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         init();
-
+        AppRater.app_launched(this);
     }
 
     private void init() {
@@ -65,7 +63,9 @@ public class AartiList extends AppCompatActivity {
 
         } else {
 
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION
+            },MY_PERMISSIONS_REQUEST_READ_CONTACTS);
         }
     }
 
@@ -83,6 +83,14 @@ public class AartiList extends AppCompatActivity {
 
                 }
                 break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0
+                || !InterstitialBuilder.create().setAdId(AdId.EXIT).setFinishOnExit(this).show(this)) {
+            super.onBackPressed();
         }
     }
 

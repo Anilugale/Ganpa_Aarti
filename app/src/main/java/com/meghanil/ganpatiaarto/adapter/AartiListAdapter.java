@@ -77,16 +77,8 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }else{
             AdViewHolder adViewHolder=(AdViewHolder) holder1;
 
-            if(Util.isNetworkAvailable(context)) {
-                MobileAds.initialize(context.getApplicationContext(), Util.APP_ID);
-
-                AdRequest adRequest = new AdRequest.Builder()
-                        .build();
-                adViewHolder.mAdView.loadAd(adRequest);
-                adViewHolder.mAdView.setVisibility(View.VISIBLE);
-            }else{
                 adViewHolder.mAdView.setVisibility(View.GONE);
-            }
+
         }
 
     }

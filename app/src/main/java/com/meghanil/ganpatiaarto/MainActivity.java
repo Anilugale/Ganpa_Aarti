@@ -1,25 +1,22 @@
 package com.meghanil.ganpatiaarto;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import com.appbrain.AdId;
+import com.appbrain.AppBrain;
+import com.appbrain.InterstitialBuilder;
 import com.squareup.picasso.Picasso;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity    {
     NestedScrollView nested;
     public static String TTITTL="tittle";
     public static String DESCRIPTION="description";
@@ -27,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppBrain.init(this);
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         init();
-
     }
 
     private void init() {
@@ -54,18 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
         nested = (NestedScrollView) findViewById(R.id.nested);
 
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        if(Util.isNetworkAvailable(this)) {
-            MobileAds.initialize(getApplicationContext(), Util.APP_ID);
-            AdRequest adRequest = new AdRequest.Builder()
-                    .build();
-            mAdView.loadAd(adRequest);
-        }else{
-            mAdView.setVisibility(View.GONE);
-        }
-
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -90,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }
