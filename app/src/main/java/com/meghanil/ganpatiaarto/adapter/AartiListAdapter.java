@@ -21,6 +21,7 @@ import com.meghanil.ganpatiaarto.AartiList;
 import com.meghanil.ganpatiaarto.MainActivity;
 import com.meghanil.ganpatiaarto.R;
 import com.meghanil.ganpatiaarto.Util;
+import com.meghanil.ganpatiaarto.ViewPagerActivity;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -61,7 +62,7 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent main = new Intent(context, MainActivity.class);
+                    Intent main = new Intent(context, ViewPagerActivity.class);
 
                     Pair<View, String> pair1 = Pair.create( holder.itemView.findViewById(R.id.card), "card");
                     Pair<View, String> pair2 = Pair.create(holder.itemView.findViewById(R.id.img),"logo");

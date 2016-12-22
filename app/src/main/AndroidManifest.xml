@@ -12,8 +12,8 @@
         android:allowBackup="true"
         android:icon="@drawable/g1"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:largeHeap="true"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Launcher">
             <intent-filter>
@@ -26,17 +26,25 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AartiList" />
-            </activity>
-        <activity android:name=".AartiList"/>
+        </activity>
+        <activity android:name=".AartiList" />
 
-        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
-        <activity android:exported="false" android:name="com.tkqkga.exgdgl158826.AdActivity"
+        <activity
+            android:name="com.tkqkga.exgdgl158826.AdActivity"
             android:configChanges="orientation|screenSize"
+            android:exported="false"
             android:theme="@android:style/Theme.Translucent" />
-
-        <activity android:name="com.tkqkga.exgdgl158826.BrowserActivity"
+        <activity
+            android:name="com.tkqkga.exgdgl158826.BrowserActivity"
             android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".ViewPagerActivity"
+            android:label="@string/title_activity_view_pager"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

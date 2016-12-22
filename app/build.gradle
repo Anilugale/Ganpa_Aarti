@@ -12,8 +12,8 @@ android {
         applicationId "com.meghanil.ganpatiaarto"
         minSdkVersion 16
         targetSdkVersion 24
-        versionCode 4
-        versionName "1.0.3"
+        versionCode 5
+        versionName "1.0.4"
     }
     buildTypes {
         release {
@@ -38,5 +38,6 @@ dependencies {
     compile 'com.google.firebase:firebase-ads:9.4.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.appbrain:appbrain-sdk:+@aar'
+    compile 'com.facebook.android:audience-network-sdk:4.+'
 
 }

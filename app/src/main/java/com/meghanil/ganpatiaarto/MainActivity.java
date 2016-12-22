@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity    {
 
     private void init() {
 
-
         Bundle data =getIntent().getExtras();
         String tittle = data.getString(TTITTL,null);
         if(tittle!=null) {

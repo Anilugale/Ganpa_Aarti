@@ -24,7 +24,7 @@ public class AppRater {
     private static SharedPreferences prefs;
     public static void app_launched(Context mContext) {
         prefs = mContext.getSharedPreferences("apprater", 0);
-        //if (prefs.getBoolean("dontshowagain", false)) { return ; }
+        if (prefs.getBoolean("dontshowagain", false)) { return ; }
         APP_TITLE = mContext.getString(R.string.app_name);
         SharedPreferences.Editor editor = prefs.edit();
 

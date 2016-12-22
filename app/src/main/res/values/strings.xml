@@ -7,8 +7,6 @@
 निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ||"</string>
 
 
-
-
     <string name="earth">Earth</string>
     <string name="moon">Moon</string>
     <string name="share">Share</string>
@@ -1741,4 +1739,5 @@
         <item>"सदा सर्वदा योग तूझा घडावा"</item>
         <item>"मनाचे श्लोक"</item>
     </string-array>
+    <string name="title_activity_view_pager">ViewPagerActivity</string>
 </resources>
