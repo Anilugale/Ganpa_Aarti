@@ -21,9 +21,9 @@
 
             <ImageView
                 android:layout_width="280dp"
-                android:layout_height="160dp"
+                android:layout_height="180dp"
                 android:paddingTop="10dp"
-                android:scaleType="centerCrop"
+                android:scaleType="centerInside"
                 android:transitionName="logo"
                 android:src="@drawable/g1"
                 android:layout_gravity="center_horizontal|bottom"

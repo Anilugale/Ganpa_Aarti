@@ -24,6 +24,7 @@ public class AartiList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppBrain.addTestDevice("f71e0cea7534f0bc");
         AppBrain.init(this);
         setContentView(R.layout.aarti_list);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));

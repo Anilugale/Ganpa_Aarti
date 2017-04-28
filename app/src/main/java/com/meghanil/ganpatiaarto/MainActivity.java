@@ -7,13 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.appbrain.AdId;
 import com.appbrain.AppBrain;
-import com.appbrain.InterstitialBuilder;
-import com.squareup.picasso.Picasso;
+
 
 
 public class MainActivity extends AppCompatActivity    {
@@ -21,6 +18,7 @@ public class MainActivity extends AppCompatActivity    {
     public static String TTITTL="tittle";
     public static String DESCRIPTION="description";
     public static  String  IMAGE="image";
+    public static  String  POSITION="POSITION";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity    {
 
         int  imgId = data.getInt(IMAGE,-1);
         if(imgId!=-1) {
-            Picasso.with(this).load(imgId).into((ImageView) findViewById(R.id.imgID));
+        //    Picasso.with(this).load(imgId).into((ImageView) findViewById(R.id.imgID));
         }
         nested = (NestedScrollView) findViewById(R.id.nested);
 

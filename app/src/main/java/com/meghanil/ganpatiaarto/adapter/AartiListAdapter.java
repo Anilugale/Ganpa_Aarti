@@ -72,6 +72,7 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     main.putExtra(MainActivity.TTITTL, titileData[newposition]);
                     main.putExtra(MainActivity.DESCRIPTION, descriptionData[newposition]);
                     main.putExtra(MainActivity.IMAGE, imageID.getResourceId(newposition, -1));
+                    main.putExtra(MainActivity.POSITION, newposition);
                     context.startActivity(main, options.toBundle());
                 }
             });

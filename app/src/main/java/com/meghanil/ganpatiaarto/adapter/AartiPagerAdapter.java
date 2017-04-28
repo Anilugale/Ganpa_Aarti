@@ -5,15 +5,17 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 
 import com.meghanil.ganpatiaarto.MainActivity;
 import com.meghanil.ganpatiaarto.R;
+import com.meghanil.ganpatiaarto.ViewPagerActivity;
 import com.meghanil.ganpatiaarto.fragment.AartiFragment;
 
 /**
   Created by anil on 15/11/16.
  */
-public class AartiPagerAdapter extends FragmentPagerAdapter {
+public class AartiPagerAdapter extends FragmentPagerAdapter  {
 
     String[] titileData,descriptionData;
     Context context;
@@ -33,9 +35,9 @@ public class AartiPagerAdapter extends FragmentPagerAdapter {
 
         AartiFragment fm =   new AartiFragment();
         Bundle main = new Bundle();
-        main.putString(MainActivity.TTITTL, titileData[position]);
         main.putString(MainActivity.DESCRIPTION, descriptionData[position]);
-        main.putInt(MainActivity.IMAGE, imageID.getResourceId(position, -1));
+        main.putString(MainActivity.TTITTL, titileData[position]);
+        main.putInt(MainActivity.IMAGE, imageID.getResourceId(position,-1));
         fm.setArguments(main);
         return fm;
 
