@@ -43,11 +43,7 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(viewType ==main) {
-            return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.arrtilist_item, parent, false));
-        }else{
-            return new AdViewHolder(LayoutInflater.from(context).inflate(R.layout.ad_view, parent, false));
-        }
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.arrtilist_item, parent, false));
     }
 
     @Override
@@ -76,26 +72,25 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     context.startActivity(main, options.toBundle());
                 }
             });
-        }else{
-            AdViewHolder adViewHolder=(AdViewHolder) holder1;
-
-                adViewHolder.mAdView.setVisibility(View.GONE);
-
         }
 
     }
 
     private int getPosition(int position) {
-        if(position>4) {
+       /* if(position>4) {
             return position -(int) Math.ceil(position / 4);
         }else{
             return position;
-        }
+        }*/
+    
+        return position;
     }
 
     @Override
     public int getItemCount() {
-                return descriptionData.length+(descriptionData.length/4)+1;
+              //  return descriptionData.length+(descriptionData.length/4)+1;
+    
+        return descriptionData.length;
     }
 
     class  ViewHolder extends RecyclerView.ViewHolder{
@@ -108,20 +103,15 @@ public class AartiListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    class  AdViewHolder extends RecyclerView.ViewHolder{
-        AdView mAdView;
-        public AdViewHolder(View itemView) {
-            super(itemView);
-            mAdView = (AdView) itemView.findViewById(R.id.adView);
-        }
-    }
+ 
 
     @Override
     public int getItemViewType(int position) {
-        if(position!=0 && position%4==0){
+      /*  if(position!=0 && position%4==0){
             return ad;
         }else{
             return main;
-        }
+        }*/
+        return main;
     }
 }
