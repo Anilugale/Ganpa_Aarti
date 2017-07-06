@@ -8,6 +8,20 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+
+    <!--Recommended permissions to receive brand‐centric ads with interactive functionality for better eCPMs-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/g1"
@@ -46,6 +60,27 @@
             android:name=".ViewPagerActivity"
             android:label="@string/title_activity_view_pager"
             android:theme="@style/AppTheme"/>
+
+        <!--Required Activity for rendering ads in the embedded browser-->
+        <activity android:name="com.inmobi.rendering.InMobiAdActivity"
+                  android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                  android:hardwareAccelerated="true" />
+
+
+        <!--Required Receiver for enhanced targeting for better ads.-->
+
+        <receiver android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
+                  android:enabled="true"
+                  android:exported="true" >
+            <intent-filter>
+                <action android:name="com.inmobi.share.id" />
+            </intent-filter>
+        </receiver>
+
+        <service android:enabled="true" android:name="com.inmobi.signals.activityrecognition.ActivityRecognitionManager" />
+
+
     </application>
 
 </manifest>

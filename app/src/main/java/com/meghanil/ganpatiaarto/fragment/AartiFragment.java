@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.inmobi.ads.InMobiBanner;
+import com.inmobi.sdk.InMobiSdk;
 import com.meghanil.ganpatiaarto.R;
 import com.meghanil.ganpatiaarto.ViewPagerActivity;
 import com.squareup.picasso.Picasso;
@@ -34,6 +36,8 @@ public class AartiFragment extends Fragment {
       txtTtitle =(TextView) rootView.findViewById(R.id.title);
       imageView =(ImageView) rootView.findViewById(R.id.image);
       nested = (NestedScrollView) rootView.findViewById(R.id.nested);
+      InMobiBanner banner = (InMobiBanner)rootView.findViewById(R.id.banner);
+      banner.load();
       init();
       return rootView;
    }
