@@ -92,3 +92,16 @@
 # platform version. We know about them, and they are safe.
 -dontwarn android.support.**
 -dontwarn com.google.ads.**
+
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{
+	public *;
+}
+
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{
+	public *;
+}
+
+-keep class com.inmobi.**
+{ *; }
+
+-dontwarn com.inmobi.**
