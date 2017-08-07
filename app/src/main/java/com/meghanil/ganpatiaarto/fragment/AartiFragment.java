@@ -28,6 +28,7 @@ public class AartiFragment extends Fragment {
    ImageView  imageView;
    TextView description,txtTtitle;
    String tittle;
+   InMobiBanner banner;
    @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                             Bundle savedInstanceState) {
@@ -36,8 +37,8 @@ public class AartiFragment extends Fragment {
       txtTtitle =(TextView) rootView.findViewById(R.id.title);
       imageView =(ImageView) rootView.findViewById(R.id.image);
       nested = (NestedScrollView) rootView.findViewById(R.id.nested);
-      InMobiBanner banner = (InMobiBanner)rootView.findViewById(R.id.banner);
-      banner.load();
+      banner = (InMobiBanner)rootView.findViewById(R.id.banner);
+      
       init();
       return rootView;
    }
@@ -60,5 +61,13 @@ public class AartiFragment extends Fragment {
    public void onResume() {
       super.onResume();
       ( (ViewPagerActivity)getActivity()).setTitle(tittle);
+   }
+   @Override
+   public void setUserVisibleHint(boolean isVisibleToUser) {
+      super.setUserVisibleHint(isVisibleToUser);
+  
+      if(isVisibleToUser && banner!=null ){
+         banner.load();
+      }
    }
 }

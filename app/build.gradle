@@ -15,8 +15,8 @@ android {
         applicationId "com.meghanil.ganpatiaarto"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 8
-        versionName "1.1.2"
+        versionCode 9
+        versionName "1.2"
         multiDexEnabled true
         dexOptions {
             javaMaxHeapSize "4g"
@@ -44,7 +44,6 @@ dependencies {
     compile "com.android.support:design:$supportLibVersion"
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.google.android.gms:play-services:11.0.2'
-    compile 'com.appbrain:appbrain-sdk:+@aar'
     compile 'com.android.support:multidex:1.0.1'
     compile files('libs/InMobi-6.2.3.jar')
 }

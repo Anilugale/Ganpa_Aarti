@@ -10,25 +10,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.Toast;
 
-import com.appbrain.AdId;
-import com.appbrain.AppBrain;
-import com.appbrain.InterstitialBuilder;
+import com.inmobi.ads.InMobiAdRequestStatus;
+import com.inmobi.ads.InMobiInterstitial;
 import com.meghanil.ganpatiaarto.adapter.AartiListAdapter;
+
+import java.util.Map;
 
 public class AartiList extends AppCompatActivity {
     FloatingActionButton fab;
     RecyclerView aartiList;
+    final String TAG = AartiList.class.getSimpleName();
     public static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1001;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(BuildConfig.DEBUG) {
-            AppBrain.addTestDevice("f71e0cea7534f0bc");
-        }
-        AppBrain.init(this);
-        setContentView(R.layout.aarti_list);
+       setContentView(R.layout.aarti_list);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         init();
         AppRater.app_launched(this);
@@ -43,6 +42,7 @@ public class AartiList extends AppCompatActivity {
         if(!checkPermission()){
             requestPermission();
         }
+       initad();
     }
 
     private boolean checkPermission(){
@@ -91,10 +91,49 @@ public class AartiList extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0
-                || !InterstitialBuilder.create().setAdId(AdId.EXIT).setFinishOnExit(this).show(this)) {
-            super.onBackPressed();
-        }
+       
+       if(interstitial.isReady() && !IsAdShown) {
+          IsAdShown = true;
+          interstitial.show();
+       }else{
+          super.onBackPressed();
+       }
     }
-
+   
+   
+   InMobiInterstitial interstitial;
+   boolean IsAdShown;
+   void initad(){
+        interstitial = new InMobiInterstitial(this, 1502038406688L, new InMobiInterstitial.InterstitialAdListener() {
+          @Override
+          public void onAdRewardActionCompleted(InMobiInterstitial ad, Map rewards) {
+             callFinish();
+          }
+          @Override
+          public void onAdDisplayed(InMobiInterstitial ad) {}
+          @Override
+          public void onAdDismissed(InMobiInterstitial ad) {
+             callFinish();
+          }
+          @Override
+          public void onAdInteraction(InMobiInterstitial ad, Map params) {}
+          @Override
+          public void onAdLoadSucceeded(final InMobiInterstitial ad) {
+             Log.e(TAG, "onAdLoadSucceeded: "+ad );
+          }
+          @Override
+          public void onAdLoadFailed(InMobiInterstitial ad, InMobiAdRequestStatus requestStatus) {
+             Log.e(TAG, "onAdLoadFailed: "+requestStatus.getMessage() );
+          }
+          @Override
+          public void onUserLeftApplication(InMobiInterstitial ad){}
+       });
+       interstitial.load();
+    }
+    
+    private void callFinish() {
+         finish();
+    }
+    
+    
 }
