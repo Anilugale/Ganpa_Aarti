@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class Util {
 
     public static String APP_ID = "ca-app-pub-1356977967417348~2517610118";
+    public static boolean isLoadSecond;
 
     public static void setTypeFace(TextView tv,Context context) {
         if(Build.VERSION.SDK_INT<Build.VERSION_CODES.LOLLIPOP) {

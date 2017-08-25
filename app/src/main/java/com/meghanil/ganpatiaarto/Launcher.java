@@ -9,6 +9,8 @@ import android.view.View;
 
 import com.inmobi.sdk.InMobiSdk;
 
+import static com.inmobi.sdk.InMobiSdk.LogLevel.DEBUG;
+
 public class Launcher extends AppCompatActivity {
 
     @Override
@@ -16,7 +18,7 @@ public class Launcher extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
         InMobiSdk.init(this, "9b284bc268e24470a9ce2d982619f851"); //'this' is used specify context
-    
+		 InMobiSdk.setLogLevel(DEBUG);
         findViewById(R.id.card).postDelayed(new Runnable() {
             @Override
             public void run() {

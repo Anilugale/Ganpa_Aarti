@@ -5,10 +5,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.inmobi.sdk.InMobiSdk;
 import com.meghanil.ganpatiaarto.adapter.AartiPagerAdapter;
 
 public class ViewPagerActivity extends AppCompatActivity {
+   AartiPagerAdapter aartiPagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +18,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         pager.setOffscreenPageLimit(1);
         Log.d("ViewPagerActivity", "onCreate: "+position);
         pager.setAdapter(new AartiPagerAdapter(getSupportFragmentManager(),this));
-        pager.setCurrentItem(position,true);
+       pager.setCurrentItem(position,true);
     }
 
 }
