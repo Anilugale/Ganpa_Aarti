@@ -78,12 +78,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     ads:placementId="1501137222203"/>
-                <com.inmobi.ads.InMobiBanner
-                    android:id="@+id/banner2"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:visibility="gone"
-                    ads:placementId="1503372024582"/>
 
 
             </LinearLayout>
