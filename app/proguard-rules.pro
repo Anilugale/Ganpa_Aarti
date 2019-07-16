@@ -101,7 +101,5 @@
 	public *;
 }
 
--keep class com.inmobi.**
-{ *; }
 
--dontwarn com.inmobi.**
+-keep class com.stripe.android.** { *; }

@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity    {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         init();
     }
 
@@ -31,11 +30,6 @@ public class MainActivity extends AppCompatActivity    {
 
         Bundle data =getIntent().getExtras();
         String tittle = data.getString(TTITTL,null);
-        if(tittle!=null) {
-            getSupportActionBar().setTitle(tittle);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
         String description = data.getString(DESCRIPTION,null);
         if(description!=null){
             ((TextView)findViewById(R.id.description)).setText(description);

@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 
-import com.inmobi.sdk.InMobiSdk;
+import com.facebook.ads.AdSettings;
+import com.facebook.ads.AudienceNetworkAds;
 
-import static com.inmobi.sdk.InMobiSdk.LogLevel.DEBUG;
 
 public class Launcher extends AppCompatActivity {
 
@@ -17,8 +15,10 @@ public class Launcher extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
-        InMobiSdk.init(this, "9b284bc268e24470a9ce2d982619f851"); //'this' is used specify context
-		 InMobiSdk.setLogLevel(DEBUG);
+        AdSettings.setDebugBuild(BuildConfig.DEBUG);
+        AudienceNetworkAds.initialize(this);
+
+
         findViewById(R.id.card).postDelayed(new Runnable() {
             @Override
             public void run() {

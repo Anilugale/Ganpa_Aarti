@@ -73,11 +73,13 @@
                         android:textSize="18sp"
                         android:textStyle="bold"/>
                 </ScrollView>
-                <com.inmobi.ads.InMobiBanner
-                    android:id="@+id/banner"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    ads:placementId="1501137222203"/>
+                <LinearLayout
+                        android:id="@+id/banner_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="vertical"
+                        />
 
 
             </LinearLayout>

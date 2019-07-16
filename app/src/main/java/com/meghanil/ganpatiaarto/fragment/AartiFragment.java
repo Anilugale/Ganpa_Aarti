@@ -8,10 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.inmobi.ads.InMobiAdRequestStatus;
-import com.inmobi.ads.InMobiBanner;
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
+import com.facebook.ads.NativeAdLayout;
+import com.facebook.ads.NativeAdListener;
+import com.facebook.ads.NativeBannerAd;
 import com.meghanil.ganpatiaarto.R;
 import com.meghanil.ganpatiaarto.Util;
 import com.meghanil.ganpatiaarto.ViewPagerActivity;
@@ -32,7 +38,6 @@ public class AartiFragment extends Fragment {
    ImageView  imageView;
    TextView description,txtTtitle;
    String tittle;
-   InMobiBanner banner;
    private final static String TAG = AartiFragment.class.getSimpleName();
       @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,8 +47,21 @@ public class AartiFragment extends Fragment {
       txtTtitle =(TextView) rootView.findViewById(R.id.title);
       imageView =(ImageView) rootView.findViewById(R.id.image);
       nested = (NestedScrollView) rootView.findViewById(R.id.nested);
-      banner = (InMobiBanner)rootView.findViewById(R.id.banner);
-      
+         // Instantiate a NativeBannerAd object.
+         // NOTE: the placement ID will eventually identify this as your App, you can ignore it for
+         // now, while you are testing and replace it later when you have signed up.
+         // While you are using this temporary code you will only get test ads and if you release
+         // your code like this to the Google Play your users will not receive ads (you will get a no fill error).
+         AdView adView = new AdView(getContext(), "2416433748619591_2416439661952333", AdSize.BANNER_HEIGHT_50);
+
+         // Find the Ad Container
+         LinearLayout adContainer = (LinearLayout) rootView.findViewById(R.id.banner_container);
+
+         // Add the ad view to your activity layout
+         adContainer.addView(adView);
+
+         // Request an ad
+         adView.loadAd();
       init();
       return rootView;
    }
@@ -52,6 +70,7 @@ public class AartiFragment extends Fragment {
       Bundle data =getArguments();
       tittle = data.getString(TTITTL,null);
       txtTtitle.setText(tittle);
+
       String description = data.getString(DESCRIPTION,null);
       if(description!=null){
          this.description.setText(description);
@@ -68,64 +87,7 @@ public class AartiFragment extends Fragment {
       ( (ViewPagerActivity)getActivity()).setTitle(tittle);
       }
    
-   private void showAd(boolean isSecond) {
-      if(banner==null ){
-         return;
-      }
-   
-      
-      
-         banner.load();
-         banner.setListener(new InMobiBanner.BannerAdListener() {
-         
-         
-            @Override
-            public void onAdLoadSucceeded(InMobiBanner inMobiBanner) {
-               
-            }
-         
-            @Override
-            public void onAdLoadFailed(InMobiBanner inMobiBanner, InMobiAdRequestStatus inMobiAdRequestStatus) {
-               Log.e("", "onAdLoadFailed: banner " + inMobiAdRequestStatus.getMessage());
-               banner.postDelayed(new Runnable() {
-                  @Override
-                  public void run() {
-                     
-                     showAd(true);
-                  }
-               }, 1000 * 30);
-            }
-         
-            @Override
-            public void onAdDisplayed(InMobiBanner inMobiBanner) {
-            
-            }
-         
-            @Override
-            public void onAdDismissed(InMobiBanner inMobiBanner) {
-            
-            }
-         
-            @Override
-            public void onAdInteraction(InMobiBanner inMobiBanner, Map<Object, Object> map) {
-            
-            }
-         
-            @Override
-            public void onUserLeftApplication(InMobiBanner inMobiBanner) {
-            
-            }
-         
-            @Override
-            public void onAdRewardActionCompleted(InMobiBanner inMobiBanner, Map<Object, Object> map) {
-            
-            }
-         });
-      
-      
-   
-   }
-   
+
    @Override
    public void setUserVisibleHint(boolean isVisibleToUser) {
       super.setUserVisibleHint(isVisibleToUser);
@@ -136,7 +98,6 @@ public class AartiFragment extends Fragment {
             Util.isLoadSecond = true;
          }
          Log.e(TAG, "setUserVisibleHint: "+ Util.isLoadSecond );
-         showAd( Util.isLoadSecond);
       }
    }
 }

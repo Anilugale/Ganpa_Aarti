@@ -7,20 +7,15 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.meghanil.ganpatiaarto.AartiList;
 import com.meghanil.ganpatiaarto.MainActivity;
 import com.meghanil.ganpatiaarto.R;
-import com.meghanil.ganpatiaarto.Util;
 import com.meghanil.ganpatiaarto.ViewPagerActivity;
 import com.squareup.picasso.Picasso;
 
