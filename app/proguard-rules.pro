@@ -101,5 +101,4 @@
 	public *;
 }
 
-
 -keep class com.stripe.android.** { *; }
