@@ -1,8 +1,8 @@
 package com.meghanil.ganpatiaarto;
 
 import android.content.Intent;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.facebook.ads.AdSettings;

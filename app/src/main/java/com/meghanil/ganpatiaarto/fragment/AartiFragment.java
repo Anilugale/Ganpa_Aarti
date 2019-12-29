@@ -1,8 +1,8 @@
 package com.meghanil.ganpatiaarto.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.NestedScrollView;
+import androidx.fragment.app.Fragment;
+import androidx.core.widget.NestedScrollView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,19 +11,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
 import com.facebook.ads.AdSize;
 import com.facebook.ads.AdView;
-import com.facebook.ads.NativeAdLayout;
-import com.facebook.ads.NativeAdListener;
-import com.facebook.ads.NativeBannerAd;
 import com.meghanil.ganpatiaarto.R;
 import com.meghanil.ganpatiaarto.Util;
 import com.meghanil.ganpatiaarto.ViewPagerActivity;
 import com.squareup.picasso.Picasso;
-
-import java.util.Map;
 
 /**
  Created by anil on 15/11/16.

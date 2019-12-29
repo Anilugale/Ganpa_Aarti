@@ -3,13 +3,13 @@ package com.meghanil.ganpatiaarto.adapter;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.meghanil.ganpatiaarto.MainActivity;
 import com.meghanil.ganpatiaarto.R;
-import com.meghanil.ganpatiaarto.ViewPagerActivity;
 import com.meghanil.ganpatiaarto.fragment.AartiFragment;
 
 /**
@@ -30,7 +30,7 @@ public class AartiPagerAdapter extends FragmentPagerAdapter  {
     }
 
     @Override
-    public android.support.v4.app.Fragment getItem(int position) {
+    public Fragment getItem(int position) {
 
 
         AartiFragment fm =   new AartiFragment();
