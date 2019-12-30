@@ -8,16 +8,14 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="190dp"
             android:background="@android:color/black"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="snap">
+            app:layout_scrollFlags="scroll|enterAlways">
 
             <ImageView
                 android:layout_width="280dp"
@@ -26,8 +24,8 @@
                 android:scaleType="centerInside"
                 android:transitionName="logo"
                 android:src="@drawable/g1"
-                android:layout_gravity="center_horizontal|bottom"
-                app:layout_collapseMode="pin"/>
+                android:layout_gravity="center_horizontal|bottom"/>
+
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
