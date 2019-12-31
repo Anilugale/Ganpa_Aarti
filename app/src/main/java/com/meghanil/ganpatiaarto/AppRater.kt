@@ -42,12 +42,13 @@ object AppRater {
                 showRateDialog(mContext, editor)
             }
         }
+        showRateDialog(mContext, editor)
         editor.apply()
     }
 
     @SuppressLint("InflateParams", "SetTextI18n")
     fun showRateDialog(mContext: Context, editor: Editor?) {
-        val dialog: Dialog = AppCompatDialog(mContext, android.R.style.Theme_DeviceDefault_Dialog)
+        val dialog: Dialog = AppCompatDialog(mContext)
         dialog.setTitle("Rate $APP_TITLE")
         val root = LayoutInflater.from(mContext).inflate(R.layout.app_rate, null)
         val tv = root.findViewById<View>(R.id.rate_msg) as TextView

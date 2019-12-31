@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
+import androidx.recyclerview.widget.RecyclerView
 import com.meghanil.ganpatiaarto.adapter.AartiListAdapter
 import kotlinx.android.synthetic.main.aarti_list.*
 
@@ -19,7 +20,7 @@ class AartiList : AppCompatActivity() {
     }
 
     private fun init() {
-        aartiList.layoutManager = LinearLayoutManager(this)
+        aartiList.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
         val adapter = AartiListAdapter(this)
         aartiList.adapter = adapter
     }

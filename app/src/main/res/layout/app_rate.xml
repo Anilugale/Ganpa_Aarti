@@ -1,27 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/rate_msg"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp">
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/rate_msg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/app_rate_btn"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/rate_it"
+                android:textAllCaps="false" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/app_rate_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/remind"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/reminder_me_later"
+                android:textAllCaps="false" />
 
-    <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/remind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/no_thanks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-</LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no_thanks"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/app_rate_btn"
+                android:layout_toRightOf="@+id/remind"
+                android:text="@string/no_thanks"
+                android:textAllCaps="false" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

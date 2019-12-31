@@ -17,8 +17,8 @@ android {
         applicationId "com.meghanil.ganpatiaarto"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 19
-        versionName "2.3"
+        versionCode 20
+        versionName "2.4"
         multiDexEnabled true
         dexOptions {
             javaMaxHeapSize "4g"

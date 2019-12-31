@@ -1922,4 +1922,7 @@
         <item>"मनाचे श्लोक"</item>
     </string-array>
     <string name="title_activity_view_pager">ViewPagerActivity</string>
+    <string name="rate_it">Rate It</string>
+    <string name="reminder_me_later">Reminder Me Later</string>
+    <string name="no_thanks">No Thanks</string>
 </resources>
