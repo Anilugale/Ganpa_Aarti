@@ -13,7 +13,7 @@ import com.meghanil.ganpatiaarto.fragment.AartiFragment
 /**
  * Created by anil on 15/11/16.
  */
-class AartiPagerAdapter(fragmentManager: FragmentManager?, var context: Context) : FragmentPagerAdapter(fragmentManager!!) {
+class AartiPagerAdapter(fragmentManager: FragmentManager?, var context: Context) : FragmentPagerAdapter(fragmentManager!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private var titileData: Array<String> = context.resources.getStringArray(R.array.tittle)
     private var descriptionData: Array<String> = context.resources.getStringArray(R.array.description)
     private var imageID: TypedArray = context.resources.obtainTypedArray(R.array.imageArray)

@@ -20,7 +20,7 @@ class AartiList : AppCompatActivity() {
     }
 
     private fun init() {
-        aartiList.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
+        aartiList.layoutManager = LinearLayoutManager(this)
         val adapter = AartiListAdapter(this)
         aartiList.adapter = adapter
     }
